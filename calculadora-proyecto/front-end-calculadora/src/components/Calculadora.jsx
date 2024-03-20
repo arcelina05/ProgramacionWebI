@@ -14,6 +14,7 @@ function Calculadora() {
   const [peso, setPeso] = useState("");
   const [altura, setAltura] = useState("");
   const [resultado, setResultado] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
@@ -44,22 +45,29 @@ function Calculadora() {
           // Bajo de peso
           document.getElementById("mi_imagen2").style.display = "block";
           document.getElementById("mi_imagen").style.display = "none";
+          setMensaje("Baja de peso");
+
         } else if (resultado >= 18.5 && resultado <= 24.9) {
           // Normal
           document.getElementById("mi_imagen").style.display = "none";
           document.getElementById("mi_imagen3").style.display = "block";
+          setMensaje("saludable");
+
         } else if (resultado >= 25 && resultado <= 29.9) {
           // Gorda
-          document.getElementById("mi_imagen1").style.display = "none";
+          document.getElementById("mi_imagen2").style.display = "none";
           document.getElementById("mi_imagen").style.display = "block";
+          setMensaje("sobrepeso1");
         } else if (resultado >= 30 && resultado <= 39.9) {
           // Sobrepeso 2
-          document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen3").style.display = "none";
           document.getElementById("mi_imagen4").style.display = "block";
+          setMensaje("sobrepeso2");
         } else {
           // Mayor a 40, Sobrepeso 3
           document.getElementById("mi_imagen").style.display = "none";
           document.getElementById("mi_imagen5").style.display = "block";
+          setMensaje("sobrepeso3");
         }
       });
   }
@@ -115,6 +123,7 @@ function Calculadora() {
         />
       </form>
       <Resultado resultado={"El resultado es:  " + resultado} />
+      <p>{mensaje}</p>
       <img src={imagen} alt="Persona gorda" id="mi_imagen" className="img" />
       <img src={imagen2} alt="Persona flaca" id="mi_imagen2" className="img" />
       <img src={imagen3} alt="Persona normal" id="mi_imagen3" className="img" />
