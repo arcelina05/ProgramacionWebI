@@ -3,6 +3,9 @@ import "../styles/Calculadora.css";
 import Resultado from "./Resultado";
 import imagen from "../assets/gorda.jpg";
 import imagen2 from "../assets/flaca.jpg";
+import imagen3 from "../assets/normal.jpg";
+import imagen4 from "../assets/sobrepeso2.jpg";
+import imagen5 from "../assets/sobrepeso3.jpg";
 
 function Calculadora() {
   const [nombre, setNombre] = useState("");
@@ -37,12 +40,26 @@ function Calculadora() {
         setResultado(responseData.resultado);
         // setResultado(responseData)
         // console.log(resultado)
-        if (resultado > 10) {
-          document.getElementById("mi_imagen").style.display = "block";
-          document.getElementById("mi_imagen2").style.display = "none";
-        } else {
-          document.getElementById("mi_imagen").style.display = "none";
+        if (resultado < 18.5) {
+          // Bajo de peso
           document.getElementById("mi_imagen2").style.display = "block";
+          document.getElementById("mi_imagen").style.display = "none";
+        } else if (resultado >= 18.5 && resultado <= 24.9) {
+          // Normal
+          document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen3").style.display = "block";
+        } else if (resultado >= 25 && resultado <= 29.9) {
+          // Gorda
+          document.getElementById("mi_imagen1").style.display = "none";
+          document.getElementById("mi_imagen").style.display = "block";
+        } else if (resultado >= 30 && resultado <= 39.9) {
+          // Sobrepeso 2
+          document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen4").style.display = "block";
+        } else {
+          // Mayor a 40, Sobrepeso 3
+          document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen5").style.display = "block";
         }
       });
   }
@@ -100,6 +117,9 @@ function Calculadora() {
       <Resultado resultado={"El resultado es:  " + resultado} />
       <img src={imagen} alt="Persona gorda" id="mi_imagen" className="img" />
       <img src={imagen2} alt="Persona flaca" id="mi_imagen2" className="img" />
+      <img src={imagen3} alt="Persona normal" id="mi_imagen3" className="img" />
+      <img src={imagen4} alt="Persona sobrepso2" id="mi_imagen4" className="img" />
+      <img src={imagen5} alt="Persona sobrepso3" id="mi_imagen5" className="img" />
     </div>
   );
 }
