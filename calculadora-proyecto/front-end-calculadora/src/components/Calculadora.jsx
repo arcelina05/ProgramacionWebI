@@ -45,28 +45,44 @@ function Calculadora() {
           // Bajo de peso
           document.getElementById("mi_imagen2").style.display = "block";
           document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen3").style.display = "none";
+          document.getElementById("mi_imagen4").style.display = "none";
+          document.getElementById("mi_imagen5").style.display = "none";
           setMensaje("Baja de peso");
 
         } else if (resultado >= 18.5 && resultado <= 24.9) {
           // Normal
           document.getElementById("mi_imagen").style.display = "none";
           document.getElementById("mi_imagen3").style.display = "block";
+          document.getElementById("mi_imagen2").style.display = "none";
+          document.getElementById("mi_imagen4").style.display = "none";
+          document.getElementById("mi_imagen5").style.display = "none";
           setMensaje("saludable");
 
         } else if (resultado >= 25 && resultado <= 29.9) {
           // Gorda
           document.getElementById("mi_imagen2").style.display = "none";
           document.getElementById("mi_imagen").style.display = "block";
+          document.getElementById("mi_imagen3").style.display = "none";
+          document.getElementById("mi_imagen4").style.display = "none";
+          document.getElementById("mi_imagen5").style.display = "none";
           setMensaje("sobrepeso1");
+
         } else if (resultado >= 30 && resultado <= 39.9) {
           // Sobrepeso 2
           document.getElementById("mi_imagen3").style.display = "none";
           document.getElementById("mi_imagen4").style.display = "block";
+          document.getElementById("mi_imagen").style.display = "none";
+          document.getElementById("mi_imagen2").style.display = "none";
+          document.getElementById("mi_imagen5").style.display = "none";
           setMensaje("sobrepeso2");
         } else {
           // Mayor a 40, Sobrepeso 3
           document.getElementById("mi_imagen").style.display = "none";
           document.getElementById("mi_imagen5").style.display = "block";
+          document.getElementById("mi_imagen3").style.display = "none";
+          document.getElementById("mi_imagen4").style.display = "none";
+          document.getElementById("mi_imagen2").style.display = "none";
           setMensaje("sobrepeso3");
         }
       });
