@@ -78,8 +78,8 @@ function Calculadora() {
           setMensaje("sobrepeso2");
         } else {
           // Mayor a 40, Sobrepeso 3
-          document.getElementById("mi_imagen").style.display = "none";
-          document.getElementById("mi_imagen5").style.display = "block";
+          document.getElementById("mi_imagen5").style.display = "none";
+          document.getElementById("mi_imagen").style.display = "block";
           document.getElementById("mi_imagen3").style.display = "none";
           document.getElementById("mi_imagen4").style.display = "none";
           document.getElementById("mi_imagen2").style.display = "none";
